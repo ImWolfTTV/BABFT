@@ -140,10 +140,10 @@ local Toggle1 = Section1:CreateToggle("Infinite Christmas Blocks", nil, function
 getgenv().Christmas = State
 game:GetService('RunService').Stepped:connect(function()
 if getgenv().Christmas then
-workspace.ItemBoughtFromShop:InvokeServer("Winter Chest",getgenv().Number)
-end 
-end)
-end)
+    pcall(function()
+        workspace.ItemBoughtFromShop:InvokeServer("Winter Chest", 8)
+    end) 
+end
 
 local Button1 = Section2:CreateButton("Fox", function()
 workspace.ChangeCharacter:FireServer("FoxCharacter") 
